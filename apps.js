@@ -13,7 +13,6 @@ function getComputerChoice() {
     const choices = ['r', 'p', 's'];
     return choices[Math.floor(Math.random()*3)]
 }
-console.log(getComputerChoice())
 
 function convert(letter) {
     if (letter === "r") return "Rock";
@@ -42,7 +41,7 @@ function lose(userChoice, computerChoice) {
     setTimeout(() => userChoice_div.classList.remove('red-glow'), 300)
 }
 
-function draw(user, computer) {
+function draw(userChoice, computerChoice) {
     userChoice_div =  document.getElementById(userChoice);
     result_div.innerHTML = "The computer chose " + convert(computerChoice) + " as well. Choose again!" ;
     userChoice_div.classList.add('grey-glow');
@@ -69,7 +68,7 @@ function game(userChoice) {
         case "rr":
         case "pp":
         case "ss":
-            draw();
+            draw(userChoice,compChoice);
             break;
     }
 }
